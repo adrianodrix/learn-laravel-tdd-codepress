@@ -18,6 +18,8 @@ class AdminTagsTest extends \TestCase
 
     public function test_tags_listing()
     {
+        Tag::truncate();
+        
         Tag::create(array('name' => 'Tag_1', 'active' => true));
         Tag::create(array('name' => 'Tag_2', 'active' => false));
         Tag::create(array('name' => 'Tag_3', 'active' => false));
@@ -49,7 +51,7 @@ class AdminTagsTest extends \TestCase
 
     public function test_update_a_Tag()
     {
-        $tag = Tag::all()->last();
+        $tag = Tag::all()->first();
         $this->visit("admin/tags/{$tag->id}/edit")
             ->type('Tag_test_updated', 'name')
             ->press('btn_submit')

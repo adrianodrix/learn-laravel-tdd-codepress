@@ -5,6 +5,7 @@ namespace CodePress\CodeCategory\Testing;
 
 use CodePress\CodeCategory\Models\Category;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\DB;
 
 class AdminCategoriesTest extends \TestCase
 {
@@ -18,6 +19,8 @@ class AdminCategoriesTest extends \TestCase
 
     public function test_categories_listing()
     {
+        Category::truncate();
+
         Category::create(array('name' => 'Category_1', 'active' => true));
         Category::create(array('name' => 'Category_2', 'active' => false));
         Category::create(array('name' => 'Category_3', 'active' => false));
