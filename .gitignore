@@ -1,4 +1,5 @@
 /vendor
+!/vendor/codepress/**/*
 /.idea
 /node_modules
 /public/storage
